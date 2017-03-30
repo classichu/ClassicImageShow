@@ -51,7 +51,8 @@ public class ImageShowDataHelper {
         context.startActivity(intent);
     }
 
-    public static void setDataAndToImageShow(Context context, List<ImageShowBean> imageShowBeanList, int nowSeletedPos,boolean isTitleCenter) {
+    public static void setDataAndToImageShow(Context context, List<ImageShowBean> imageShowBeanList, int nowSeletedPos,
+                                             boolean isTitleCenter) {
         Intent intent = new Intent(context, ImageShowActivity.class);
         //
         List<ImageShowBean> imageShowBeanArrayList = new ArrayList<>();

@@ -18,7 +18,6 @@ import com.classichu.imageshow.adapter.ImageShowPagerAdapter;
 import com.classichu.imageshow.bean.ImageShowBean;
 import com.classichu.imageshow.bean.ImageShowDataWrapper;
 import com.classichu.imageshow.helper.DownloadImageHelper;
-import com.classichu.imageshow.tool.RegexTool;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -242,7 +241,7 @@ public class ImageShowActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_save,menu);
+        //###getMenuInflater().inflate(R.menu.menu_save,menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -250,29 +249,30 @@ public class ImageShowActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int i = item.getItemId();
         if (i == R.id.id_menu_save) {
-            saveImageOperator();
+            theImageOperator();
 
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void saveImageOperator() {
+    private void theImageOperator() {
         int pos = mViewPager.getCurrentItem();
         String imageUrl = mImageShowBeanList.get(pos) == null ? "" : mImageShowBeanList.get(pos).getImageUrl().toString();
-        if (!imageUrl.equals("") && RegexTool.checkURL(imageUrl)) {
-              /*  OkHttpClientSingleton.getInstance().doGetAsyncFile(imageUrl, new SimpleFileOkHttpCallback() {
+
+        /* if (!imageUrl.equals("") && RegexTool.checkURL(imageUrl)) {
+              *//*  OkHttpClientSingleton.getInstance().doGetAsyncFile(imageUrl, new SimpleFileOkHttpCallback() {
                     @Override
                     public void OnSuccess(String filePath, int statusCode) {
                        //Toast.makeText(ImageShowActivity.this, "filePath:"+filePath, Toast.LENGTH_SHORT).show();
                         KLog.d("filePath:"+filePath);
                     }
-                });*/
+                });*//*
           //  KLog.d("imageUrl:" + imageUrl);
             downloadImage(imageUrl);
         } else {
             Toast.makeText(this, "已经是本地图片", Toast.LENGTH_SHORT).show();
            // ToastTool.showLong("已经是本地图片：" + imageUrl);
-        }
+        }*/
     }
 
     private void downloadImage(String imageUrl) {
@@ -291,4 +291,5 @@ public class ImageShowActivity extends AppCompatActivity {
             }
         });
     }
+
 }

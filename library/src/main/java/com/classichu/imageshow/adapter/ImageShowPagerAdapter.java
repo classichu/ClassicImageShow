@@ -54,7 +54,8 @@ public class ImageShowPagerAdapter extends PagerAdapter {
                 .placeholder(R.drawable.img_image_no)
                 .error(R.drawable.img_image_no)
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .crossFade().into(photoView);
+                .crossFade()
+                .into(photoView);
 
 
         if (mPhotoViewAttacherListener != null) {
